@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_uas_ecommerce/models/my_product.dart';
-import 'package:tugas_uas_ecommerce/pages/details_screen.dart';
-import 'package:tugas_uas_ecommerce/widgets/product_card.dart';
+import 'package:tugas_uas/models/my_product.dart';
+import 'package:tugas_uas/pages/details_screen.dart';
+import 'package:tugas_uas/widgets/product_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -75,14 +75,14 @@ class _HomeScreenState extends State<HomeScreen> {
     mainAxisSpacing: 12,
   ),
   scrollDirection: Axis.vertical,
-  itemCount: MyProducts.allproducts.length,
+  itemCount: MyProducts.allProducts.length,
   itemBuilder: (context, index) {
-    final allProducts = MyProducts.allproducts[index];
+    final allProducts = MyProducts.allProducts[index];
     return GestureDetector(
       onTap: () => Navigator.push(
         context, 
         MaterialPageRoute(
-          builder: (context) => DetailsScreen(product: allProducts),
+          builder: (context) => DetailScreen(product: allProducts),
        ),
       ),
     child: ProductCard(product: allProducts),   
@@ -98,14 +98,14 @@ class _HomeScreenState extends State<HomeScreen> {
     mainAxisSpacing:  12,
     ),
     scrollDirection: Axis.vertical,
-    itemCount: MyProducts.jacketsList.length,
+    itemCount: MyProducts.jacketList.length,
     itemBuilder: (context, index) {
-      final jacketList = MyProducts.jacketsList[index];
+      final jacketList = MyProducts.jacketList[index];
       return GestureDetector(
       onTap: () => Navigator.push(
         context, 
         MaterialPageRoute(
-          builder: (context) => DetailsScreen(product: jacketList),
+          builder: (context) => DetailScreen(product: jacketList),
        ),
       ),
     child: ProductCard(product: jacketList), 
@@ -128,11 +128,11 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () => Navigator.push(
         context, 
         MaterialPageRoute(
-          builder: (context) => DetailsScreen(product: sneakersList),
+          builder: (context) => DetailScreen(product: sneakersList),
        ),
       ),
     child: ProductCard(product: sneakersList), 
-      );
-},
-);
+      ); 
+    },
+  );
 }
